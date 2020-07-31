@@ -1,0 +1,20 @@
+<div class="about-main">
+  <h2>卓フレとは？</h2>
+  <p>
+    卓フレは、主に卓球の練習相手募集や練習試合の募集、
+    他にも、大会情報やクラブ、サークル入会募集など、交流を目的とした
+    Webサービスです。
+    <br>
+    また、卓球に関するつぶやきなどにもご利用頂けます。
+  </p>
+
+  <div class="about-btn">
+    <%= link_to("新規登録", "/signup", data: {"turbolinks" => false}, class: "btn signup") %>
+    <%= link_to("ログイン", "/login", data: {"turbolinks" => false}, class: "btn login") %>
+  </div>
+
+  <div class="about-images">
+    <img class="about-img" src="/posts.png">
+    <img class="about-img" src="/post.png">
+  </div>
+</div>

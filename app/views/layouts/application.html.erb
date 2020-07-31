@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>卓フレ</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-logo">
+        <% if @current_user %>
+          <%= link_to("卓フレ", "/posts/index", data: {"turbolinks" => false}) %>
+        <% else %>
+          <%= link_to("卓フレ", "/", data: {"turbolinks" => false}) %>
+        <% end %>
+      </div>
+
+      <a class="menuBtn" id="menuBtn">
+          <div></div>
+          <div></div>
+          <div></div>
+      </a>
+
+      <div class="login-user">
+        <% if @current_user %>
+          <%= link_to(@current_user.name, "/users/#{@current_user.id}", data: {"turbolinks" => false}) %>
+        <% end %>
+      </div>
+    </header> 
+
+    <div id="menuNav">
+      <ul class="header-menus">
+        <% if @current_user %>
+          <!-- ログインしている状態のヘッダー-->
+          <li>
+            <%= link_to("投稿一覧", "/posts/index", data: {"turbolinks" => false}) %>
+          </li>
+          <li>
+            <%= link_to("新規投稿", "/posts/new", data: {"turbolinks" => false}) %>
+          </li>
+          <li>
+            <%= link_to("ユーザー一覧", "/users/index", data: {"turbolinks" => false}) %>
+          </li>
+          <li>
+            <%= link_to("ログアウト", "/logout", {method: :post, data: {"turbolinks" => false}}) %>
+          </li>
+        <% else %>
+          <!-- ログインしていない状態のヘッダー -->
+          <li>
+            <%= link_to("卓フレとは", "/about", data: {"turbolinks" => false}) %>
+          </li>
+          <li>
+            <%= link_to("新規登録", "/signup", data: {"turbolinks" => false}) %>
+          </li>
+          <li>
+            <%= link_to("ログイン", "/login", data: {"turbolinks" => false}) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <!-- flash[:notice]によるフラッシュメッセージの表示 -->
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%=flash[:notice] %>
+      </div>
+    <% end %>
+    <%= yield %>
+    <%= javascript_include_tag 'menu.js' %>
+  </body>
+</html>
