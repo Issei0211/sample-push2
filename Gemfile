@@ -85,6 +85,9 @@ gem "jquery-ui-rails"
 # MySQLの導入
 gem "mysql2"
 
+# コンソールにエラーを表示
+gem 'rails_12factor', group: :production
+
 group :production do
   gem 'pg'
 end
