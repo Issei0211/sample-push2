@@ -82,6 +82,9 @@ gem 'ransack'
 gem "bootstrap-sass", "~>3.3.6"
 gem "jquery-ui-rails"
 
+# MySQLの導入
+gem "mysql2"
+
 group :production do
   gem 'pg'
 end

@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   # ユーザー詳細ページのルーティング
   get "users/:id" => "users#show" 
 
+  # 投稿検索ページのルーティング
+  get "posts/search" => "posts#search"
+
   # 投稿一覧ページのルーティング
   get "posts/index" => "posts#index"
   # 新規投稿ページのルーティング

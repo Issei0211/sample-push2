@@ -8,6 +8,14 @@
       <p>
         <%= @post.content %>
       </p>
+
+      <div class="post-image">
+        <% if @post.image %>
+          <!-- 投稿画像 -->
+          <a href="<%= "/post_images/#{@post.image}" %>" target="_blank"><img src="<%= "/post_images/#{@post.image}" %>"></a>
+        <% end %>
+      </div>
+
       <div class="post-time">
         <%= @post.created_at %>
       </div>
@@ -18,7 +26,12 @@
           <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
         </div>
       <% end %>
-      
+
+      <% if @current_user.admin? && !(@current_user == @user) %>
+        <div class="post-menus">
+          <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

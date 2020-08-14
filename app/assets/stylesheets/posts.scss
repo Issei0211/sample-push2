@@ -36,6 +36,12 @@
     padding-left: 25px;
     text-align: left;
   }
+
+  .post-image img {
+    width: 100px;
+    height: 100px;
+    margin-top: 7px;
+  }
   
   /* posts/show ================================ */
   .posts-show form {
@@ -83,6 +89,14 @@
     text-decoration: underline;
     font-size: 14px;
   }
+
+  .posts-show-item .post-image img {
+    width: 150px;
+    height: 150px;
+    margin-left: 23px;
+    margin-bottom: 20px;
+    border-radius: 0%;
+  }
   
   /* posts/new ================================ */
   .posts-new textarea {
@@ -106,5 +120,10 @@
   .pagination li {
     float: left;
     margin-right: 20px;
+  }
+
+  /* posts/search ================================ */
+  .search-form {
+    margin-bottom: 30px;
   }
   

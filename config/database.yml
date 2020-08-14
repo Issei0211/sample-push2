@@ -20,8 +20,39 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
-  <<: *default
-  adapter: postgresql
-  encoding: unicode
+# production:
+  # <<: *default
+  # adapter: postgresql
+  # encoding: unicode
+  # pool: 5
+
+# MySQLの導入
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: tabletennis_app
   pool: 5
+  username: root
+  password: Yosshi.0211401@gmail.com
+  host: localhost
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: tabletennis_app
+  pool: 5
+  username: root
+  password: Yosshi.0211401@gmail.com
+  host: localhost
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: tabletennis_app
+  pool: 5
+  username: root
+  password: Yosshi.0211401@gmail.com
+  host: localhost
