@@ -83,7 +83,10 @@ gem "bootstrap-sass", "~>3.3.6"
 gem "jquery-ui-rails"
 
 # MySQLの導入
-gem "mysql2"
+gem "mysql2", group: [:development, :test]
+
+# 本番環境でpostgresqlを使用
+gem 'pg', group: :production
 
 # コンソールにエラーを表示
 gem 'rails_12factor', group: :production
