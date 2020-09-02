@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  # チャットルームページのルーティング
+  resources :messages, :only => [:create]
+  resources :rooms, :only => [:create, :show, :index]
+
   # ログインページのルーティング
   get "login" => "users#login_form"
   # ログインページのデータを送信するためのルーティング

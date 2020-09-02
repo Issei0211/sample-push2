@@ -6,6 +6,19 @@
       <p><%= @user.email %></p>
       <% if @user.id == @current_user.id %>
         <%= link_to("編集", "/users/#{@user.id}/edit", data: {"turbolinks" => false}) %>
+      <% else %>
+        <% if @isRoom == true %>
+          <!-- チャットの続きへ -->
+          <a href="/rooms/<%= @roomId %>">チャットへ</a>
+        <% else %>
+          <%= form_for @room do |f| %>
+            <%= fields_for @entry do |e| %>
+              <%= e.hidden_field :user_id, :value=> @user.id %>
+            <% end %>
+            <!-- 新規チャットルーム生成 -->
+            <%= f.submit "チャットを始める" %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
 

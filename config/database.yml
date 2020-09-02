@@ -83,6 +83,7 @@ test:
   # password: issei0211
   # socket: /var/lib/mysql/mysql.sock
 
+  # 本番環境でのpostgresql導入
   production:
     <<: *default
     adapter: postgresql
